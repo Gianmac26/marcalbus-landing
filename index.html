@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MarcalBus | Movilidad Corporativa Inteligente en Lima</title>
+  <meta name="description" content="MarcalBus brinda transporte corporativo, transporte de personal, taxi ejecutivo y movilidad turística empresarial en Lima con enfoque B2B." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://marcalbus.pe/" />
+
+  <meta property="og:title" content="MarcalBus | Movilidad Corporativa Inteligente en Lima" />
+  <meta property="og:description" content="Transporte de personal, taxi ejecutivo y movilidad turística empresarial en Lima con enfoque B2B." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://marcalbus.pe/" />
+  <meta property="og:image" content="img/og-marcalbus.jpg" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="favicon.ico" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "MarcalBus",
+    "description": "Movilidad corporativa inteligente para empresas en Lima, Perú.",
+    "url": "https://marcalbus.pe/",
+    "logo": "https://marcalbus.pe/img/logo.png",
+    "image": "https://marcalbus.pe/img/og-marcalbus.jpg",
+    "telephone": "+51928672932",
+    "areaServed": {
+      "@type": "City",
+      "name": "Lima"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lima",
+      "addressCountry": "PE"
+    },
+    "priceRange": "$$",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+51928672932",
+      "contactType": "customer service",
+      "availableLanguage": ["Spanish"]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #030712;
+      --surface: #07111f;
+      --line: rgba(148, 163, 184, 0.16);
+      --text: #f8fbff;
+      --muted: #a7b4c7;
+      --muted-2: #7e8ea6;
+      --blue: #2f80ff;
+      --cyan: #57e8ff;
+      --green: #20e3b2;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+      --radius-lg: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-radius: 4px; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(47, 128, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(87, 232, 255, 0.13), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.94rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      color: #00111f;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      box-shadow: 0 18px 42px rgba(47, 128, 255, 0.32);
+    }
+
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 26px 60px rgba(47, 128, 255, 0.42); }
+
+    .btn-secondary {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.13);
+      background: rgba(255, 255, 255, 0.055);
+      backdrop-filter: blur(16px);
+    }
+
+    .btn-secondary:hover { transform: translateY(-3px); border-color: rgba(87, 232, 255, 0.45); background: rgba(87, 232, 255, 0.09); }
+
+    .btn-whatsapp {
+      color: white;
+      background: linear-gradient(135deg, #25d366, #1ebe5d);
+      border: none;
+      box-shadow: 0 18px 40px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 28px 60px rgba(37, 211, 102, 0.45); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: var(--cyan);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+    }
+
+    .section { padding: 104px 0; position: relative; }
+
+    .section-title {
+      max-width: 800px;
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: 0.01em;
+      word-spacing: 0.05em;
+      margin-bottom: 18px;
+    }
+
+    .section-copy { max-width: 680px; color: var(--muted); font-size: 1.05rem; }
+
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 80;
+      background: rgba(3, 7, 18, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(22px);
+    }
+
+    .nav-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 1.35rem;
+      letter-spacing: -0.045em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(87, 232, 255, 0.95), rgba(47, 128, 255, 0.95));
+      color: #00111f;
+      box-shadow: 0 16px 35px rgba(47, 128, 255, 0.35);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 0.92rem; font-weight: 750; }
+    .nav-links a:not(.btn):hover { color: var(--cyan); }
+
+    .hero { min-height: 100vh; padding: 132px 0 72px; position: relative; overflow: hidden; }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 70px 70px;
+      mask-image: radial-gradient(circle at 50% 20%, black, transparent 72%);
+      -webkit-mask-image: radial-gradient(circle at 50% 20%, black, transparent 72%);
+      pointer-events: none;
+    }
+
+    .hero-layout { position: relative; z-index: 2; display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 58px; align-items: center; }
+
+    .hero-badge {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      color: var(--cyan);
+      border: 1px solid rgba(87, 232, 255, 0.28);
+      background: rgba(87, 232, 255, 0.08);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 rgba(32, 227, 178, 0.5);
+      animation: pulse 1.7s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(32, 227, 178, 0.52); }
+      70% { box-shadow: 0 0 0 13px rgba(32, 227, 178, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(32, 227, 178, 0); }
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(3.2rem, 7.2vw, 7rem);
+      line-height: 0.98;
+      letter-spacing: 0.01em;
+      word-spacing: 0.04em;
+      margin-bottom: 26px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #ddf8ff 42%, var(--cyan) 72%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p { max-width: 620px; color: var(--muted); font-size: 1.14rem; margin-bottom: 34px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+
+    .mini-proof { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; color: var(--muted-2); font-size: 0.88rem; font-weight: 750; }
+    .mini-proof strong { color: var(--text); }
+    .avatar-row { display: flex; align-items: center; }
+    .avatar { width: 34px; height: 34px; margin-left: -8px; border-radius: 50%; border: 2px solid var(--bg); background: linear-gradient(135deg, var(--cyan), var(--blue)); }
+    .avatar:first-child { margin-left: 0; }
+
+    .product-shot { position: relative; min-height: 600px; }
+
+    .dashboard {
+      position: relative;
+      z-index: 2;
+      border-radius: 36px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(22px);
+    }
+
+    .dashboard-top { height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 18px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); }
+    .window-dots { display: flex; gap: 7px; }
+    .window-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.22); }
+    .dashboard-status { color: var(--green); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; }
+    .dashboard-body { padding: 18px; display: grid; grid-template-columns: 1fr 0.9fr; gap: 16px; }
+
+    .map-card { position: relative; min-height: 430px; border-radius: 28px; overflow: hidden; background: var(--surface); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .map-card img { width: 100%; height: 100%; min-height: 430px; object-fit: cover; filter: saturate(0.95) contrast(1.05) brightness(0.76); }
+    .lima-map-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .map-card::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 42%, rgba(87, 232, 255, 0.18), transparent 18%), linear-gradient(180deg, rgba(3, 7, 18, 0.04), rgba(3, 7, 18, 0.42)); }
+    .route-svg { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; }
+
+    .vehicle-chip {
+      position: absolute;
+      z-index: 4;
+      left: 24px;
+      bottom: 24px;
+      right: 24px;
+      padding: 15px;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 13px;
+      border-radius: 22px;
+      background: rgba(3, 7, 18, 0.74);
+      border: 1px solid rgba(87, 232, 255, 0.24);
+      backdrop-filter: blur(18px);
+    }
+
+    .vehicle-chip img { width: 58px; height: 58px; min-height: 58px; object-fit: cover; border-radius: 16px; filter: none; }
+    .vehicle-chip strong { display: block; margin-bottom: 3px; letter-spacing: -0.02em; }
+    .vehicle-chip span { color: var(--muted); font-size: 0.84rem; font-weight: 700; }
+
+    .side-panel { display: grid; gap: 14px; }
+    .metric-card { padding: 18px; border-radius: 24px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .metric-label { color: var(--muted-2); font-size: 0.76rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .metric-value { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.055em; margin-bottom: 8px; }
+    .metric-note { color: var(--muted); font-size: 0.84rem; font-weight: 650; }
+    .progress { height: 8px; overflow: hidden; border-radius: 999px; background: rgba(255, 255, 255, 0.1); margin-top: 12px; }
+    .progress span { display: block; width: 82%; height: 100%; background: linear-gradient(90deg, var(--green), var(--cyan), var(--blue)); border-radius: 999px; }
+
+    .trust-strip { padding: 26px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.025); }
+    .trust-strip .container { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .trust-label { color: var(--muted-2); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; }
+    .pill {
+      padding: 10px 15px;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.82rem;
+      font-weight: 800;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+      will-change: transform;
+      display: inline-block;
+    }
+
+    .pill:hover,
+    .pill:focus-visible {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 36px rgba(2,6,23,0.45);
+      border-color: rgba(87,232,255,0.12);
+      background: rgba(255,255,255,0.055);
+      color: var(--text);
+      outline: none;
+    }
+
+    .pill:active {
+      transform: translateY(-2px) scale(0.997);
+      box-shadow: 0 10px 20px rgba(2,6,23,0.35);
+    }
+
+    .services { background: radial-gradient(circle at 85% 10%, rgba(47, 128, 255, 0.13), transparent 28%), linear-gradient(180deg, var(--bg), #050b16); }
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 46px; }
+
+    .service-card {
+      min-height: 342px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .service-card:hover { transform: translateY(-9px); border-color: rgba(87, 232, 255, 0.38); box-shadow: 0 26px 80px rgba(47, 128, 255, 0.15); will-change: transform; }
+    .service-card::before { content: ""; position: absolute; inset: 0; opacity: 0; transition: 0.28s ease; background: radial-gradient(circle at 80% 0%, rgba(87, 232, 255, 0.22), transparent 34%); pointer-events: none; }
+    .service-card:hover::before { opacity: 1; }
+
+    .feature-item { position: relative; }
+    .feature-item .item-inner {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+      align-items: center;
+      text-align: center;
+    }
+
+    .feature-item .item-inner > div { display: block; }
+
+    .feature-item .item-inner { transition: transform 0.28s ease; will-change: transform; }
+    .feature-item:hover .item-inner { transform: translateY(-6px); border-color: rgba(87, 232, 255, 0.28); box-shadow: 0 18px 40px rgba(47, 128, 255, 0.08); }
+    .feature-item::before { content: ""; position: absolute; inset: 0; opacity: 0; transition: 0.28s ease; background: radial-gradient(circle at 80% 0%, rgba(87, 232, 255, 0.12), transparent 34%); pointer-events: none; }
+    .feature-item:hover::before { opacity: 1; }
+
+    .process-card {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .process-card { position: relative; }
+    .process-card .card-inner { transition: transform 0.28s ease; will-change: transform; }
+    .process-card:hover .card-inner { transform: translateY(-6px); }
+    .process-card:hover { border-color: rgba(87, 232, 255, 0.28); box-shadow: 0 18px 40px rgba(47, 128, 255, 0.08); }
+    .process-card::before { content: ""; position: absolute; inset: 0; opacity: 0; transition: 0.28s ease; background: radial-gradient(circle at 80% 0%, rgba(87, 232, 255, 0.12), transparent 34%); pointer-events: none; }
+    .process-card:hover::before { opacity: 1; }
+
+    .service-image { position: relative; z-index: 1; width: 100%; height: 210px; margin-bottom: 20px; border-radius: 18px; overflow: hidden; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03); }
+    .service-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 7, 18, 0.02), rgba(3, 7, 18, 0.24)), radial-gradient(circle at 70% 20%, rgba(87, 232, 255, 0.18), transparent 36%); pointer-events: none; }
+    .service-image img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.01); transition: transform 0.45s ease, filter 0.45s ease; filter: saturate(1.04) contrast(1.02) brightness(0.94); }
+    .service-card:hover .service-image img { transform: scale(1.075); filter: saturate(1.12) contrast(1.04) brightness(1); }
+
+    .service-card h3, .service-card p, .service-card ul { position: relative; z-index: 1; }
+    .service-card h3 { margin-bottom: 12px; font-size: 1.14rem; letter-spacing: -0.035em; }
+    .service-card p { margin-bottom: 18px; color: var(--muted); font-size: 0.94rem; }
+    .service-card ul { display: grid; gap: 8px; list-style: none; color: var(--muted-2); font-size: 0.86rem; font-weight: 700; }
+    .service-card li::before { content: "✓"; margin-right: 8px; color: var(--green); font-weight: 900; }
+
+    .showcase { background: linear-gradient(180deg, #050b16, var(--bg)); }
+    .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; align-items: center; }
+    .fleet-gallery { display: grid; grid-template-columns: 1fr 0.75fr; gap: 16px; min-height: 540px; }
+    .fleet-photo { position: relative; overflow: hidden; border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: var(--shadow); background: var(--surface); }
+    .fleet-photo.large { min-height: 540px; }
+    .fleet-column { display: grid; gap: 16px; }
+    .fleet-photo.small { min-height: 262px; }
+    .fleet-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.02) contrast(1.02) brightness(0.86); }
+    .fleet-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent, rgba(3, 7, 18, 0.58)); }
+
+    .feature-list { display: grid; gap: 15px; margin-top: 34px; }
+    .feature-item { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 18px; border-radius: 24px; background: rgba(255, 255, 255, 0.055); border: 1px solid rgba(255, 255, 255, 0.09); }
+    .feature-check { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 17px; color: var(--green); background: rgba(32, 227, 178, 0.09); border: 1px solid rgba(32, 227, 178, 0.2); font-weight: 950; }
+    .feature-item h3 { margin-bottom: 4px; font-size: 1rem; letter-spacing: -0.025em; }
+    .feature-item p { color: var(--muted); font-size: 0.94rem; text-align: left; }
+    .feature-item h3 { color: var(--text); text-align: left; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 46px; }
+    .process-card { padding: 28px; border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035)); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .step { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 22px; border-radius: 16px; color: #00111f; background: linear-gradient(135deg, var(--cyan), var(--blue)); font-weight: 950; box-shadow: 0 16px 30px rgba(47, 128, 255, 0.28); }
+    .process-card h3 { margin-bottom: 10px; font-size: 1.18rem; letter-spacing: -0.035em; }
+    .process-card p { color: var(--muted); font-size: 0.95rem; }
+
+    .cta { padding: 104px 0; background: radial-gradient(circle at 50% 0%, rgba(47, 128, 255, 0.25), transparent 35%), linear-gradient(180deg, var(--bg), #01040c); }
+    .cta-box { display: grid; grid-template-columns: 1.02fr 0.98fr; align-items: center; gap: 38px; padding: 38px; border-radius: 38px; background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04)); border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: var(--shadow); overflow: hidden; }
+    .cta-box h2 { margin-bottom: 16px; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 1.02; letter-spacing: 0.01em; word-spacing: 0.05em; }
+    .cta-strong { color: var(--cyan); font-weight: 900; }
+    .cta-box p { max-width: 620px; margin-bottom: 26px; color: var(--muted); font-size: 1.03rem; }
+
+    .contact-form { padding: 22px; border-radius: 30px; background: rgba(3, 7, 18, 0.68); border: 1px solid rgba(255, 255, 255, 0.12); backdrop-filter: blur(18px); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field { margin-bottom: 12px; }
+    .field label { display: block; margin-bottom: 7px; color: var(--muted); font-size: 0.79rem; font-weight: 850; }
+    input, select, textarea { width: 100%; padding: 13px 14px; color: var(--text); outline: none; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.06); }
+    select option { color: #0f172a; background: #f8fafc; }
+    textarea { min-height: 98px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { border-color: rgba(87, 232, 255, 0.58); box-shadow: 0 0 0 4px rgba(87, 232, 255, 0.1); }
+    .submit { width: 100%; margin-top: 6px; border: 0; }
+
+    .footer { padding: 36px 0; background: #01040c; border-top: 1px solid var(--line); color: var(--muted-2); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 22px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; font-weight: 800; font-size: 0.9rem; }
+    .footer-links a:hover { color: var(--cyan); }
+
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 90; width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; color: white; background: #25d366; font-size: 1.65rem; box-shadow: 0 18px 46px rgba(37, 211, 102, 0.36); transition: transform 0.2s ease; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 1060px) {
+      .hero-layout, .showcase-grid, .cta-box { grid-template-columns: 1fr; }
+      .product-shot { min-height: auto; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner { height: 68px; }
+      .nav-links a:not(.btn) { display: none; }
+      .nav-links { gap: 0; }
+      .nav-links .btn { padding: 11px 14px; min-height: 42px; font-size: 0.82rem; }
+      .brand { font-size: 1.18rem; }
+      .brand-mark { width: 38px; height: 38px; }
+      .hero { padding: 106px 0 56px; }
+      .hero h1 { font-size: clamp(3.1rem, 15vw, 5rem); }
+      .hero p { font-size: 1.02rem; }
+      .hero-actions .btn { width: 100%; }
+      .dashboard-body { grid-template-columns: 1fr; }
+      .map-card, .map-card img { min-height: 330px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-image { height: 230px; }
+      .fleet-gallery { grid-template-columns: 1fr; min-height: auto; }
+      .fleet-photo.large, .fleet-photo.small { min-height: 280px; }
+      .form-row { grid-template-columns: 1fr; }
+      .section { padding: 76px 0; }
+      .cta-box { padding: 24px; border-radius: 30px; }
+    }
+
+    /* --- Refactor: Balanced showcase / beneficios styles --- */
+    .showcase-refactor {
+      background: linear-gradient(180deg, #050b16, var(--bg));
+      padding: 64px 0;
+    }
+    .showcase-refactor .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .showcase-grid-ref { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+
+    /* collage */
+    .collage-grid { display: grid; grid-template-columns: 1fr 0.7fr; gap: 16px; height: auto; align-items: center; }
+    .collage-large { grid-row: 1 / span 2; overflow: hidden; border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 14px 32px rgba(2,6,23,0.55); background: var(--surface); height: 460px; }
+    .collage-stack { display: grid; grid-template-rows: 1fr 1fr; gap: 16px; height: auto; }
+    .collage-small { overflow: hidden; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 12px 30px rgba(2,6,23,0.5); background: var(--surface); height: 220px; }
+    .collage-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* features */
+    .features { display: flex; flex-direction: column; gap: 22px; justify-content: flex-start; }
+    .features .section-title { margin-bottom: 6px; }
+    .features .section-copy { margin-bottom: 14px; color: var(--muted); }
+
+    .features-grid { display: grid; grid-template-columns: 1fr; gap: 20px; grid-auto-rows: 1fr; }
+
+    .feature-card { height: 100%; display: block; padding: 22px; border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 20px rgba(2,6,23,0.35); overflow: hidden; transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; position: relative; }
+    .feature-card .card-inner { display:flex; gap:16px; align-items:flex-start; height:100%; transition: transform .28s ease; will-change: transform; }
+    .feature-card .feature-check { flex: 0 0 56px; width:56px; height:56px; display:grid; place-items:center; border-radius:14px; color:var(--green); background:rgba(32,227,178,0.08); border:1px solid rgba(32,227,178,0.18); font-weight:950; font-size:1.05rem; }
+    .feature-card h3 { margin:0 0 8px 0; font-size:1.02rem; line-height:1.15; color:var(--text); }
+    .feature-card p { margin:0; color:var(--muted); line-height:1.4; font-size:0.95rem; }
+    .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(2,6,23,0.5); border-color: rgba(87,232,255,0.16); }
+    .feature-card:hover .card-inner { transform: translateY(-6px); }
+    .feature-card::before { content: ""; pointer-events: none; position:absolute; inset:0; background: radial-gradient(circle at 80% 0%, rgba(87,232,255,0.06), transparent 28%); opacity:0; transition: opacity .28s ease; }
+    .feature-card:hover::before { opacity:1; }
+
+    @media (max-width:900px) {
+      .showcase-grid-ref { grid-template-columns: 1fr; }
+      .collage-grid { height:auto; grid-template-columns:1fr; grid-auto-rows:auto; gap:12px; }
+      .collage-large { grid-row:auto; border-radius:20px; height:320px; }
+      .collage-small { height:180px; border-radius:14px; }
+      .feature-card { padding:18px; border-radius:14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#inicio" aria-label="MarcalBus inicio">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>MarcalBus</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto" class="btn btn-primary">Cotizar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="hero-badge"><span class="pulse" aria-hidden="true"></span> Operación B2B · Lima Metropolitana</div>
+          <h1><span class="gradient-text">Movilidad inteligente</span> para empresas <span class="gradient-text" style="opacity:0.88">exigentes</span></h1>
+          <p>Transporte de personal, mini buses, taxi ejecutivo y traslados empresariales con coordinación profesional, trazabilidad y experiencia premium.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Solicitar cotización</a>
+            <a class="btn btn-secondary" href="#servicios">Explorar servicios</a>
+          </div>
+          <div class="mini-proof">
+            <div class="avatar-row" aria-hidden="true">
+              <span class="avatar"></span>
+              <span class="avatar"></span>
+              <span class="avatar"></span>
+            </div>
+            <span><strong>Diseñado para empresas</strong> que necesitan puntualidad, seguridad y respuesta rápida.</span>
+          </div>
+        </div>
+
+        <div class="product-shot" aria-label="Panel visual de operación MarcalBus">
+          <div class="dashboard">
+            <div class="dashboard-top">
+              <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="dashboard-status" aria-live="polite">● Operación activa</div>
+            </div>
+            <div class="dashboard-body">
+              <div class="map-card">
+                <img src="img/marcalbus_mapa_lima.png" class="lima-map-img" alt="Mapa urbano de Lima Metropolitana" />
+                <svg class="route-svg" viewBox="0 0 500 500" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M60 390 C160 270, 230 350, 300 210 S410 120, 450 80" fill="none" stroke="rgba(87,232,255,0.9)" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 13" />
+                  <circle cx="60" cy="390" r="10" fill="#20e3b2" />
+                  <circle cx="300" cy="210" r="10" fill="#57e8ff" />
+                  <circle cx="450" cy="80" r="10" fill="#2f80ff" />
+                </svg>
+                <div class="vehicle-chip">
+                  <picture>
+                    <source type="image/webp" srcset="img/marcalbus_minibus-1200.webp 1200w, img/marcalbus_minibus-800.webp 800w" sizes="(max-width:760px) 100vw, 120px">
+                    <img src="img/marcalbus_minibus.png" srcset="img/marcalbus_minibus-1200.webp 1200w, img/marcalbus_minibus-800.webp 800w" sizes="(max-width:760px) 100vw, 120px" alt="Mini bus corporativo moderno">
+                  </picture>
+                  <div>
+                    <strong>Mini bus asignado</strong>
+                    <span>Ruta San Isidro → Planta · ETA 18 min</span>
+                  </div>
+                </div>
+              </div>
+
+              <aside class="side-panel">
+                <div class="metric-card">
+                  <div class="metric-label">Puntualidad estimada</div>
+                  <div class="metric-value">98%</div>
+                  <div class="metric-note">Rutas coordinadas con anticipación</div>
+                  <div class="progress"><span></span></div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Servicios</div>
+                  <div class="metric-value">4</div>
+                  <div class="metric-note">Personal · Ejecutivo · Mini bus · Turismo</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Canal operativo</div>
+                  <div class="metric-value">24/7</div>
+                  <div class="metric-note">Coordinación directa por WhatsApp</div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Sectores atendidos">
+      <div class="container">
+        <span class="trust-label">Ideal para</span>
+        <span class="pill">Empresas</span>
+        <span class="pill">Clínicas</span>
+        <span class="pill">Constructoras</span>
+        <span class="pill">Colegios</span>
+        <span class="pill">Eventos corporativos</span>
+      </div>
+    </section>
+
+    <section class="section services" id="servicios">
+      <div class="container">
+        <span class="eyebrow">Servicios</span>
+        <h2 class="section-title">Una plataforma de movilidad para resolver tus traslados empresariales.</h2>
+        <p class="section-copy">MarcalBus combina unidades adecuadas, coordinación operativa y atención B2B para que tu empresa no dependa de soluciones informales.</p>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-image">
+              <picture>
+                <source type="image/webp" srcset="img/marcalbus_flota-1200.webp 1200w, img/marcalbus_flota-800.webp 800w" sizes="(max-width:760px) 100vw, 33vw">
+                <img src="img/marcalbus_flota.png" srcset="img/marcalbus_flota-1200.webp 1200w, img/marcalbus_flota-800.webp 800w" sizes="(max-width:760px) 100vw, 33vw" alt="Grupo de trabajadores usando transporte corporativo" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <h3>Transporte de personal</h3>
+            <p>Rutas fijas para ingreso, salida y turnos de trabajo.</p>
+            <ul>
+              <li>Rutas programadas</li>
+              <li>Control de horarios</li>
+              <li>Unidades según demanda</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image">
+              <img src="img/marcalbus_taxi.png" alt="Hombre con terno sentado en la parte posterior de un auto ejecutivo" loading="lazy" decoding="async">
+            </div>
+            <h3>Taxi ejecutivo</h3>
+            <p>Traslados corporativos para gerencias, visitas y reuniones.</p>
+            <ul>
+              <li>Conductores verificados</li>
+              <li>Atención reservada</li>
+              <li>Facturación empresarial</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image">
+              <picture>
+                <source type="image/webp" srcset="img/marcalbus_minibus-1200.webp 1200w, img/marcalbus_minibus-800.webp 800w" sizes="(max-width:760px) 100vw, 33vw">
+                <img src="img/marcalbus_minibus.png" srcset="img/marcalbus_minibus-1200.webp 1200w, img/marcalbus_minibus-800.webp 800w" sizes="(max-width:760px) 100vw, 33vw" alt="Mini bus blanco corporativo con logo MarcalBus en la ciudad" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <h3>Mini buses corporativos</h3>
+            <p>Movilidad grupal para equipos medianos, capacitaciones y eventos.</p>
+            <ul>
+              <li>Capacidad flexible</li>
+              <li>Servicio puntual</li>
+              <li>Coordinación por WhatsApp</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image">
+              <picture>
+                <source type="image/webp" srcset="img/marcalbus_turismo-1200.webp 1200w, img/marcalbus_turismo-800.webp 800w" sizes="(max-width:760px) 100vw, 33vw">
+                <img src="img/marcalbus_turismo.png" srcset="img/marcalbus_turismo-1200.webp 1200w, img/marcalbus_turismo-800.webp 800w" sizes="(max-width:760px) 100vw, 33vw" alt="Bus grande con logo MarcalBus en ambiente de campo" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <h3>Turismo empresarial</h3>
+            <p>Traslados para integraciones, eventos y visitas corporativas.</p>
+            <ul>
+              <li>Viajes planificados</li>
+              <li>Recojo y retorno</li>
+              <li>Unidades cómodas</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-refactor" id="beneficios">
+      <div class="container">
+        <div class="showcase-grid-ref">
+          <!-- LEFT: image collage -->
+          <div class="collage" aria-label="Galería de flota MarcalBus">
+            <div class="collage-grid">
+              <div class="collage-large">
+                <img src="img/marcalbus_minibus.png" alt="Bus profesional para transporte empresarial" loading="lazy" decoding="async">
+              </div>
+              <div class="collage-stack">
+                <div class="collage-small">
+                  <img src="img/marcalbus_taxi.png" alt="Auto ejecutivo para taxi corporativo" loading="lazy" decoding="async">
+                </div>
+                <div class="collage-small">
+                  <img src="img/marcalbus_turismo.png" alt="Vehículo moderno en ruta urbana" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: features -->
+          <div class="features">
+            <span class="eyebrow">Beneficios</span>
+            <h2 class="section-title">Más control operativo. Menos fricción logística.</h2>
+            <p class="section-copy">Pensado para áreas de Recursos Humanos, Administración y Operaciones que necesitan cumplir horarios, cuidar al personal y mantener una imagen profesional.</p>
+
+            <div class="features-grid">
+              <div class="feature-card">
+                <div class="card-inner">
+                  <div class="feature-check" aria-hidden="true">✓</div>
+                  <div>
+                    <h3>Puntualidad operativa</h3>
+                    <p>Planificación anticipada de rutas para reducir retrasos y descoordinaciones.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <div class="card-inner">
+                  <div class="feature-check" aria-hidden="true">✓</div>
+                  <div>
+                    <h3>Servicio con imagen empresarial</h3>
+                    <p>Conductores presentables, comunicación formal y atención orientada a empresas.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="feature-card">
+                <div class="card-inner">
+                  <div class="feature-check" aria-hidden="true">✓</div>
+                  <div>
+                    <h3>Proveedor único de movilidad</h3>
+                    <p>Personal, ejecutivos, mini buses, turismo y servicios especiales en un solo canal.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proceso">
+      <div class="container">
+        <span class="eyebrow">Proceso</span>
+        <h2 class="section-title">De la necesidad a la operación en tres pasos.</h2>
+        <p class="section-copy">Implementamos un esquema simple para entender tu operación, proponer la solución y empezar con control desde el primer servicio.</p>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="card-inner">
+              <div class="step" aria-hidden="true">1</div>
+              <h3>Diagnóstico de movilidad</h3>
+              <p>Levantamos horarios, zonas, cantidad de personas, frecuencia y tipo de unidad requerida.</p>
+            </div>
+          </article>
+          <article class="process-card">
+            <div class="card-inner">
+              <div class="step" aria-hidden="true">2</div>
+              <h3>Diseño de propuesta</h3>
+              <p>Armamos ruta, tarifa, condiciones, responsables y esquema de coordinación.</p>
+            </div>
+          </article>
+          <article class="process-card">
+            <div class="card-inner">
+              <div class="step" aria-hidden="true">3</div>
+              <h3>Inicio y coordinación</h3>
+              <p>Asignamos unidad, conductor, canal operativo y seguimiento para cada servicio.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contacto">
+      <div class="container cta-box">
+        <div>
+          <span class="eyebrow">Cotización</span>
+          <h2>Solicita una <span class="cta-strong">propuesta</span><br>para tu empresa</h2>
+          <p>Déjanos tus datos y evaluamos la mejor solución de transporte para tu operación en Lima: rutas de personal, mini buses, taxi ejecutivo o traslados corporativos.</p>
+          <a class="btn btn-whatsapp" href="#" id="whatsappDirectBtn">Escribir por WhatsApp</a>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+            </div>
+            <div class="field">
+              <label for="empresa">Empresa</label>
+              <input id="empresa" name="empresa" type="text" placeholder="Nombre de empresa" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" placeholder="correo@empresa.com" required>
+            </div>
+            <div class="field">
+              <label for="servicio">Tipo de servicio</label>
+              <select id="servicio" name="servicio" required>
+                <option value="">Selecciona un servicio</option>
+                <option>Transporte de personal</option>
+                <option>Transporte turístico</option>
+                <option>Taxi ejecutivo</option>
+                <option>Otro servicio</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mensaje">Detalle del requerimiento</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos horarios, rutas, cantidad de personas, etc."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit">Enviar solicitud →</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">M</span><span>MarcalBus</span></div>
+      <div>Lima, Perú · Movilidad corporativa B2B</div>
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#" id="footerWhatsAppLink">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="#" id="whatsappFloatBtn" aria-label="Contactar por WhatsApp">💬</a>
+
+  <script>
+    const MARCALBUS_CONFIG = {
+      whatsappNumber: '51928672932',
+      defaultMessage: 'Hola MarcalBus, necesito información sobre sus servicios.',
+      quoteMessage: 'Hola MarcalBus, quiero solicitar una cotización para mi empresa.'
+    };
+
+    function openWhatsApp(message) {
+      const encodedMessage = encodeURIComponent(message);
+      const url = `https://wa.me/${MARCALBUS_CONFIG.whatsappNumber}?text=${encodedMessage}`;
+      const newWindow = window.open(url, '_blank');
+      if (newWindow) newWindow.opener = null;
+    }
+
+    function buildQuoteMessage({ nombre, empresa, email, servicio, mensaje }) {
+      return `Hola MarcalBus, solicito una cotización desde la web:\n\n` +
+        `Nombre: ${nombre}\n` +
+        `Empresa: ${empresa}\n` +
+        `Correo: ${email}\n` +
+        `Tipo de servicio: ${servicio}\n` +
+        `Detalle: ${mensaje || 'No indicado'}`;
+    }
+
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const empresa = document.getElementById('empresa').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const servicio = document.getElementById('servicio').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !empresa || !email || !servicio) {
+        alert('Por favor completa todos los campos requeridos.');
+        return;
+      }
+
+      const quoteMessage = buildQuoteMessage({ nombre, empresa, email, servicio, mensaje });
+      openWhatsApp(quoteMessage);
+    }
+
+    function setupWhatsAppButton(id, message) {
+      const element = document.getElementById(id);
+      if (!element) return;
+
+      element.addEventListener('click', function (event) {
+        event.preventDefault();
+        openWhatsApp(message);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('contactForm');
+      if (form) form.addEventListener('submit', sendToWhatsApp);
+
+      setupWhatsAppButton('whatsappDirectBtn', MARCALBUS_CONFIG.quoteMessage);
+      setupWhatsAppButton('whatsappFloatBtn', MARCALBUS_CONFIG.defaultMessage);
+      setupWhatsAppButton('footerWhatsAppLink', MARCALBUS_CONFIG.defaultMessage);
+
+      console.assert(
+        buildQuoteMessage({ nombre: 'Ana', empresa: 'ACME', email: 'ana@acme.com', servicio: 'Taxi ejecutivo', mensaje: '' }).includes('Detalle: No indicado'),
+        'buildQuoteMessage debe usar “No indicado” cuando no hay detalle.'
+      );
+      console.assert(
+        buildQuoteMessage({ nombre: 'Luis', empresa: 'Beta', email: 'luis@beta.com', servicio: 'Transporte turístico', mensaje: 'Ruta Lima' }).includes('Ruta Lima'),
+        'buildQuoteMessage debe incluir el detalle ingresado.'
+      );
+    });
+  </script>
+</body>
+</html>

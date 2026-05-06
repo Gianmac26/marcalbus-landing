@@ -329,7 +329,12 @@
 
     .trust-strip { padding: 26px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.025); }
     .trust-strip .container { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
-    .trust-label { color: var(--muted-2); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; }
+    .trust-label { color: var(--muted-2); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; white-space: nowrap; }
+    
+    /* Desktop default: keep original layout without marquee effect */
+    .marquee-wrapper, .marquee-track { display: contents; }
+    .pill.mobile-duplicate { display: none !important; }
+
     .pill {
       padding: 10px 15px;
       border-radius: 999px;
@@ -340,7 +345,10 @@
       font-weight: 800;
       transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
       will-change: transform;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
     }
 
     .pill:hover,
@@ -351,6 +359,38 @@
       background: rgba(255,255,255,0.055);
       color: var(--text);
       outline: none;
+    }
+
+    /* Mobile: activate smooth marquee */
+    @media (max-width: 768px) {
+      .trust-strip { overflow: hidden; }
+      .trust-strip .container { flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; padding-inline: 0; }
+      .trust-strip .trust-label { padding-inline: 20px; }
+      
+      .marquee-wrapper {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        /* Premium mask for smooth fade out at edges */
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      }
+      
+      .marquee-track {
+        display: flex;
+        gap: 12px;
+        padding-left: 20px;
+        width: max-content;
+        animation: marquee-scroll 24s linear infinite;
+        will-change: transform;
+      }
+      
+      .pill.mobile-duplicate { display: inline-flex !important; }
+      
+      @keyframes marquee-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-50% - 6px)); } /* Half width + half gap */
+      }
     }
 
     .pill:active {
@@ -694,11 +734,20 @@
     <section class="trust-strip" aria-label="Sectores atendidos">
       <div class="container">
         <span class="trust-label">Ideal para</span>
-        <span class="pill">Empresas</span>
-        <span class="pill">Clínicas</span>
-        <span class="pill">Constructoras</span>
-        <span class="pill">Colegios</span>
-        <span class="pill">Eventos corporativos</span>
+        <div class="marquee-wrapper">
+          <div class="marquee-track">
+            <span class="pill">Empresas</span>
+            <span class="pill">Clínicas</span>
+            <span class="pill">Constructoras</span>
+            <span class="pill">Colegios</span>
+            <span class="pill">Eventos corporativos</span>
+            <span class="pill mobile-duplicate" aria-hidden="true">Empresas</span>
+            <span class="pill mobile-duplicate" aria-hidden="true">Clínicas</span>
+            <span class="pill mobile-duplicate" aria-hidden="true">Constructoras</span>
+            <span class="pill mobile-duplicate" aria-hidden="true">Colegios</span>
+            <span class="pill mobile-duplicate" aria-hidden="true">Eventos corporativos</span>
+          </div>
+        </div>
       </div>
     </section>
 

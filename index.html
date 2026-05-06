@@ -514,6 +514,49 @@
       .whatsapp-float { display: none; }
     }
 
+    /* Mobile: hide the floating tracking card by default, allow it to be shown
+       when `.show-mobile` is added (toggle button will add/remove this class) */
+    @media (max-width: 768px) {
+      .vehicle-chip {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+      .vehicle-chip.show-mobile {
+        display: grid !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+      /* keep map visuals intact */
+      .map-card { border-radius: 24px; }
+      .map-card .lima-map-img { border-radius: 24px; }
+
+      /* mobile toggle button */
+      .mobile-toggle {
+        display: inline-flex;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 6;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(3, 7, 18, 0.72);
+        border: 1px solid rgba(255,255,255,0.06);
+        color: var(--text);
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+    }
+
+    /* Extra safeguard for narrow phones (~390px width like iPhone 13/14) */
+    @media (max-width: 400px) {
+      .vehicle-chip { display: none !important; visibility: hidden !important; }
+      .vehicle-chip.show-mobile { display: grid !important; visibility: visible !important; pointer-events: auto !important; }
+    }
+
     /* --- Refactor: Balanced showcase / beneficios styles --- */
     .showcase-refactor {
       background: linear-gradient(180deg, #050b16, var(--bg));

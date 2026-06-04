@@ -1013,6 +1013,10 @@
     function openWhatsApp(message) {
       const encodedMessage = encodeURIComponent(message);
       const url = `https://wa.me/${MARCALBUS_CONFIG.whatsappNumber}?text=${encodedMessage}`;
+      gtag('event', 'click_whatsapp', {
+          event_category: 'lead',
+          event_label: 'whatsapp_marcalbus'
+      });
       const newWindow = window.open(url, '_blank');
       if (newWindow) newWindow.opener = null;
     }

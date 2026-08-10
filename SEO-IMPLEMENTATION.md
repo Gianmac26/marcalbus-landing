@@ -29,6 +29,14 @@ La plantilla reutilizable está compuesta por:
 - `assets/marcalbus.js`: formulario, WhatsApp, analítica defensiva y animaciones.
 - `transporte-de-personal-lima.html`: referencia estructural de metadata, schema, hero, bloques de contenido, FAQ y CTA.
 
+Las extensiones publicadas usan la misma plantilla compartida:
+
+- `taxi-ejecutivo-lima.html`
+- `minibus-corporativo-lima.html`
+- `turismo-empresarial.html`
+
+Cada página tiene mensajes propios para los dolores de usuario y de Recursos Humanos, además de contenido sobre GPS, IA aplicada a la operación, experiencia del pasajero y coordinación B2B.
+
 Para futuras páginas se debe duplicar únicamente la estructura HTML de la landing, cambiar el contenido semántico, metadata, canonical, schema, imagen hero y enlaces internos; CSS y JS deben seguir apuntando a los assets compartidos.
 
 ## Verificación realizada

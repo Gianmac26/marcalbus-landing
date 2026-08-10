@@ -613,5 +613,6 @@
     .seo-faq details:last-child { border-bottom: 1px solid rgba(255,255,255,.12); }
     .seo-faq summary { cursor: pointer; color: var(--text); font-weight: 800; list-style-position: outside; }
     .seo-faq details p { margin: 12px 0 0 20px; color: var(--muted); }
+    .service-link { width: 100%; margin-top: 20px; font-size: .82rem; }
     @media (max-width: 900px) { .seo-grid-3, .seo-two-col { grid-template-columns: 1fr; } .seo-reverse > figure { order: 2; } .seo-image-card img { height: 360px; } }
     @media (max-width: 760px) { .seo-hero-visual, .seo-hero-visual img { min-height: 360px; } .seo-visual-caption { flex-direction: column; gap: 3px; } .breadcrumb { padding-inline: 20px; } }

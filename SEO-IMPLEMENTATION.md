@@ -39,3 +39,8 @@ Para futuras páginas se debe duplicar únicamente la estructura HTML de la land
 - Se verificó la existencia y peso reducido de las cinco imágenes SEO WebP.
 - Se verificó que la landing tenga un solo `h1`, ocho FAQ visibles y atributos de imagen completos.
 
+## SEO y GEO adicional
+
+- La home enlaza desde la tarjeta de servicios hacia `transporte-de-personal-lima.html`, reforzando la arquitectura interna sin alterar el menú principal.
+- Home y landing comparten el mismo identificador de entidad `@id`, junto con schema `WebSite` y `knowsAbout` para mejorar la comprensión de la marca y sus servicios.
+- La optimización GEO se basa en respuestas directas visibles, contexto local explícito, FAQ rastreable, contenido original y relaciones semánticas consistentes. No se agregaron claims ni perfiles sociales no verificados.

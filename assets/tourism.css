@@ -60,3 +60,12 @@
 /* Evita que selects con texto largo ensanchen la grilla del CTA en movil */
 .cta-box > *, .contact-form, .form-row > .field { min-width: 0; }
 .contact-form select, .contact-form input, .contact-form textarea { max-width: 100%; min-width: 0; }
+
+/* Fotos de destino dentro de .route-media (el degradado queda como respaldo) */
+.route-media > picture { position: absolute; inset: 0; z-index: 0; display: block; }
+.route-media:has(> picture)::before { display: none; }
+.route-media::after { z-index: 1; }
+.route-media::after { background: linear-gradient(180deg, transparent 28%, rgba(3,7,18,.8)); }
+.r1 img { object-position: 30% 40%; }
+.r2 img { object-position: 50% 78%; }
+.r3 img { object-position: 50% 35%; }

@@ -53,44 +53,53 @@
     "@id": "https://marcalbus.com/#organization",
     "name": "MarcalBus",
     "description": "Servicio de transporte de personal en Lima para empresas medianas y grandes, con flota moderna, GPS y operación 24/7.",
-    "url": "https://marcalbus.com/transporte-de-personal-lima.html",
-    "logo": "https://marcalbus.com/img/og-marcalbus.jpg",
-    "image": "https://marcalbus.com/img/og-marcalbus.jpg",
+    "url": "https://marcalbus.com/",
     "telephone": "+51928672932",
-    "areaServed": [{"@type":"City","name":"Lima"},{"@type":"Country","name":"Perú"}],
+    "priceRange": "$$",
+    "image": "https://marcalbus.com/img/og-marcalbus.jpg",
+    "logo": "https://marcalbus.com/img/og-marcalbus.jpg",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Lima Metropolitana"
+      },
+      {
+        "@type": "Country",
+        "name": "Perú"
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Lima",
       "addressCountry": "PE"
     },
-    "priceRange": "$$$",
-    "serviceType": "Transporte de personal para empresas",
-    "openingHoursSpecification": {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"19:00"},
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+51928672932",
       "contactType": "customer service",
-      "availableLanguage": ["Spanish"]
+      "availableLanguage": [
+        "Spanish"
+      ]
     }
   }
   </script>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","@id":"https://marcalbus.com/transporte-de-personal-lima.html#service","name":"Transporte de personal en Lima","serviceType":"Transporte de personal corporativo","provider":{"@type":"LocalBusiness","name":"MarcalBus","url":"https://marcalbus.com/"},"areaServed":"Lima Metropolitana","audience":{"@type":"Audience","audienceType":"Empresas con turnos rotativos y operación en plantas industriales"},"inLanguage":"es-PE","description":"Rutas de transporte de personal para empresas con unidades modernas, conductores profesionales y seguimiento GPS en tiempo real."}
+  {"@context":"https://schema.org","@type":"Service","@id":"https://marcalbus.com/transporte-de-personal-lima.html#service","name":"Transporte de personal en Lima","serviceType":"Transporte de personal corporativo","provider":{"@type":"LocalBusiness","@id":"https://marcalbus.com/#organization","name":"MarcalBus","url":"https://marcalbus.com/","telephone":"+51928672932"},"areaServed":"Lima Metropolitana","audience":{"@type":"Audience","audienceType":"Empresas con turnos rotativos y operación en plantas industriales"},"inLanguage":"es-PE","description":"Rutas de transporte de personal para empresas con unidades modernas, conductores profesionales y seguimiento GPS en tiempo real."}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://marcalbus.com/"},{"@type":"ListItem","position":2,"name":"Transporte de personal en Lima","item":"https://marcalbus.com/transporte-de-personal-lima.html"}]}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"¿Qué incluye el servicio de transporte de personal en Lima?","acceptedAnswer":{"@type":"Answer","text":"Incluye diseño de rutas, coordinación operativa, unidades modernas, conductores profesionales, seguimiento GPS y atención para la empresa."}},
-    {"@type":"Question","name":"¿MarcalBus trabaja con empresas medianas y grandes?","acceptedAnswer":{"@type":"Answer","text":"Sí. Diseñamos operaciones para empresas medianas y grandes, con rutas fijas, turnos, servicios por proyecto y necesidades corporativas especiales."}},
-    {"@type":"Question","name":"¿Puedo ver la ubicación de las unidades en tiempo real?","acceptedAnswer":{"@type":"Answer","text":"Sí. Las unidades cuentan con GPS y el cliente recibe seguimiento operativo de acuerdo con el esquema definido para su servicio."}},
-    {"@type":"Question","name":"¿En qué zonas de Lima opera MarcalBus?","acceptedAnswer":{"@type":"Answer","text":"Atendemos Lima Metropolitana y coordinamos coberturas hacia otras ciudades y todo el Perú según la ruta y el proyecto."}},
-    {"@type":"Question","name":"¿Las unidades tienen aire acondicionado?","acceptedAnswer":{"@type":"Answer","text":"La flota dispone de unidades modernas con aire acondicionado y asientos reclinables, sujetas a la configuración requerida."}},
-    {"@type":"Question","name":"¿El servicio de transporte empresarial opera de madrugada?","acceptedAnswer":{"@type":"Answer","text":"Sí. La operación es 24/7 y se puede planificar para turnos nocturnos, madrugadas, ingresos tempranos y salidas escalonadas."}},
-    {"@type":"Question","name":"¿Cómo solicito una cotización de transporte empresarial?","acceptedAnswer":{"@type":"Answer","text":"Puedes completar el formulario de esta página o escribir por WhatsApp con tus rutas, horarios y cantidad de pasajeros."}},
-    {"@type":"Question","name":"¿MarcalBus compite por precio?","acceptedAnswer":{"@type":"Answer","text":"Nuestro enfoque prioriza calidad, puntualidad, tecnología, seguridad, experiencia y profesionalismo para operaciones corporativas exigentes."}}
+    {"@type":"Question","name":"¿Qué incluye el servicio de transporte de personal en Lima?","acceptedAnswer":{"@type":"Answer","text":"Incluye el diagnóstico de rutas, programación, asignación de unidades y conductores, coordinación operativa, GPS en tiempo real y seguimiento para los responsables del cliente."}},
+    {"@type":"Question","name":"¿MarcalBus trabaja con empresas medianas y grandes?","acceptedAnswer":{"@type":"Answer","text":"Sí. Atendemos organizaciones que necesitan rutas fijas, turnos rotativos, servicios por proyecto, minibuses, buses o soluciones combinadas."}},
+    {"@type":"Question","name":"¿Puedo ver la ubicación de las unidades en tiempo real?","acceptedAnswer":{"@type":"Answer","text":"Sí. Las unidades cuentan con GPS y definimos con cada cliente el nivel de seguimiento, reportes y alertas que requiere su operación."}},
+    {"@type":"Question","name":"¿En qué zonas de Lima opera MarcalBus?","acceptedAnswer":{"@type":"Answer","text":"Cubrimos Lima Metropolitana y evaluamos rutas hacia otras ciudades y todo el Perú según el proyecto, la frecuencia y el tipo de unidad."}},
+    {"@type":"Question","name":"¿Las unidades tienen aire acondicionado?","acceptedAnswer":{"@type":"Answer","text":"La flota moderna cuenta con aire acondicionado y asientos reclinables, considerando la disponibilidad y configuración de la unidad seleccionada."}},
+    {"@type":"Question","name":"¿El servicio opera de madrugada?","acceptedAnswer":{"@type":"Answer","text":"Sí. La operación es 24/7 y podemos coordinar ingresos tempranos, turnos nocturnos, salidas escalonadas y servicios especiales."}},
+    {"@type":"Question","name":"¿Cómo solicito una cotización de transporte empresarial?","acceptedAnswer":{"@type":"Answer","text":"Completa el formulario o escríbenos por WhatsApp. Indica rutas, horarios, cantidad de pasajeros, frecuencia y fecha estimada de inicio."}},
+    {"@type":"Question","name":"¿Por qué elegir una empresa especializada y no una opción informal?","acceptedAnswer":{"@type":"Answer","text":"Porque una operación corporativa requiere continuidad, trazabilidad, conductores profesionales, protocolos de atención y una respuesta clara cuando surge una incidencia."}}
   ]}
   </script>
 

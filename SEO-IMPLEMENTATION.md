@@ -52,3 +52,17 @@ Para futuras páginas se debe duplicar únicamente la estructura HTML de la land
 - La home enlaza desde la tarjeta de servicios hacia `transporte-de-personal-lima.html`, reforzando la arquitectura interna sin alterar el menú principal.
 - Home y landing comparten el mismo identificador de entidad `@id`, junto con schema `WebSite` y `knowsAbout` para mejorar la comprensión de la marca y sus servicios.
 - La optimización GEO se basa en respuestas directas visibles, contexto local explícito, FAQ rastreable, contenido original y relaciones semánticas consistentes. No se agregaron claims ni perfiles sociales no verificados.
+
+## Analítica y versionado de assets
+
+- **Analítica unificada:** `assets/analytics.js` define `window.dataLayer` y `window.gtag`, hace `gtag('config', 'G-2CVJ9MP5CR')`, carga `gtag/js` de forma asíncrona y el loader de Microsoft Clarity (`x1vih506vp`). Todas las páginas lo incluyen con `defer` antes de `marcalbus.js` y `tourism.js` (orden: `analytics.js`, `marcalbus.js`, `tourism.js`). Ya no se usa Google Tag Manager (el contenedor `GTM-MJ4T5CQN` estaba vacío): no volver a pegar snippets de GTM, gtag.js ni Clarity dentro de las páginas.
+- **Eventos:** `click_whatsapp` solo en clics directos a botones de WhatsApp; `generate_lead` solo en el envío del formulario de las páginas de turismo.
+- **Caché de `/assets/*` (estado actual):** `vercel.json` declara reglas `headers` para `/assets/*` con `Cache-Control: public, max-age=31536000, immutable`, pero **actualmente NO se aplican**: el archivo usa `routes` y Vercel ignora `headers` cuando existe `routes`. En la práctica los assets se sirven con `Cache-Control: public, max-age=0, must-revalidate` (verificado en producción y en previews), así que los navegadores revalidan en cada visita.
+- **Versionado `?v=`:** todas las referencias a `marcalbus.css`, `tourism.css`, `analytics.js`, `marcalbus.js` y `tourism.js` llevan `?v=AAAAMMDD` (hoy `?v=20261028`). Se mantiene como protección para cuando se corrija la configuración de `vercel.json` y los assets pasen a `immutable`; mientras tanto es inofensivo.
+- **Regla:** cada vez que se edite un archivo de `/assets/`, hay que cambiar el valor de `?v=` en TODAS las páginas HTML (raíz y `/blog/`). Sin el cambio, cuando los assets pasen a `immutable`, los visitantes que ya tienen el archivo en caché no verán la actualización durante un año. Ejemplo (macOS):
+
+  ```bash
+  grep -rl "?v=20261028" --include="*.html" . | xargs sed -i '' 's/?v=20261028/?v=AAAAMMDD/g'
+  ```
+
+  Después de ejecutarlo, comprobar que no queda ninguna referencia con el valor anterior (`grep -r "?v=20261028" --include="*.html" .`).

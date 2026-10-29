@@ -28,8 +28,7 @@
     if (typeof gtag === 'function') gtag('event', name, params || {});
   }
 
-  function openWhatsApp(message, label) {
-    track('click_whatsapp', { event_category: 'lead', event_label: label || 'whatsapp_tourism', language: LANG });
+  function openWhatsApp(message) {
     var w = window.open('https://wa.me/' + NUMBER + '?text=' + encodeURIComponent(message), '_blank');
     if (w) w.opener = null;
   }
@@ -50,7 +49,8 @@
       if (!el) return;
       el.addEventListener('click', function (e) {
         e.preventDefault();
-        openWhatsApp(T.hello, id);
+        track('click_whatsapp', { event_category: 'lead', event_label: id, language: LANG });
+        openWhatsApp(T.hello);
       });
     });
 
@@ -86,7 +86,7 @@
           T.unit + ': ' + unit + '\n' +
           T.details + ': ' + (v('details') || T.none);
         track('generate_lead', { event_category: 'lead', route: v('route'), passengers: v('pax'), language: LANG });
-        openWhatsApp(msg, 'tourism_form');
+        openWhatsApp(msg);
       });
     }
   });

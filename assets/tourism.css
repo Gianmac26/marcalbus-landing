@@ -69,3 +69,14 @@
 .r1 img { object-position: 30% 40%; }
 .r2 img { object-position: 50% 78%; }
 .r3 img { object-position: 50% 35%; }
+
+/* Landing Cusco - Ollantaytambo: grilla de 4 y enlaces secundarios */
+.seo-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.seo-grid-4 .card-inner { flex-direction: column; }
+.seo-grid-4 .feature-card p + p { margin-top: 12px; }
+.route-link { color: var(--cyan); font-size: .9rem; font-weight: 800; }
+.route-link:hover { text-decoration: underline; }
+.route-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: auto; }
+.route-actions .btn { margin-top: 0; }
+@media (max-width: 1060px) { .seo-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .seo-grid-4 { grid-template-columns: 1fr; } }

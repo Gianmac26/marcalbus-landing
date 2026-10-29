@@ -482,6 +482,7 @@
       .nav-links a:not(.btn) { display: none; }
       .nav-links { gap: 0; }
       .nav-links .btn { padding: 11px 14px; min-height: 42px; font-size: 0.82rem; }
+      .nav-links a.nav-tourism { display: inline-block; max-width: 4.6rem; margin-right: 10px; font-size: 0.7rem; line-height: 1.15; }
       .brand { font-size: 1.18rem; }
       .brand-mark { width: 38px; height: 38px; }
       .hero { padding: 106px 0 56px; }
@@ -500,6 +501,9 @@
 
       /* Mobile sticky CTA removed to declutter mobile footer; keep whatsapp float hidden on mobile */
       .whatsapp-float { display: none; }
+    }
+    @media (max-width: 339px) {
+      .nav-links a.nav-tourism { display: none; }
     }
 
     /* Mobile: hide the floating tracking card by default, allow it to be shown

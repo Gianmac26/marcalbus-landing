@@ -80,3 +80,10 @@
 .route-actions .btn { margin-top: 0; }
 @media (max-width: 1060px) { .seo-grid-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .seo-grid-4 { grid-template-columns: 1fr; } }
+
+/* Enlaces internos: "See all routes" en la landing y "Popular routes" en el pie */
+.extend-more { margin-top: 26px; }
+.footer-routes { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.08); font-size: .9rem; }
+.footer-routes strong { color: var(--text); }
+.footer-routes a { font-weight: 800; }
+.footer-routes a:hover { color: var(--cyan); }

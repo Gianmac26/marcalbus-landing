@@ -70,4 +70,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://marcalbus.com/politica-de-privacidad.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://marcalbus.com/politica-de-privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcalbus.com/privacy-policy.html"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://marcalbus.com/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://marcalbus.com/politica-de-privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcalbus.com/privacy-policy.html"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://marcalbus.com/politica-de-cookies.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://marcalbus.com/politica-de-cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcalbus.com/cookie-policy.html"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://marcalbus.com/cookie-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://marcalbus.com/politica-de-cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://marcalbus.com/cookie-policy.html"/>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

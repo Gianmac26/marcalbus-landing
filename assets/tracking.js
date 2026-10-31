@@ -1,7 +1,7 @@
 /* MarcalBus - eventos de conversion hacia dataLayer (GTM).
    Un unico listener delegado en captura. Sin datos personales.
-   generate_lead no se envia: los formularios del sitio no tienen respuesta de servidor,
-   solo componen un mensaje y abren WhatsApp (ver SEO-IMPLEMENTATION.md). */
+   generate_lead mide intencion de contacto (formulario validado, justo antes de abrir
+   WhatsApp), no un lead confirmado: window.marcalbusTrackLead(formName) lo emite. */
 (function () {
   var LANG = (document.documentElement.lang || 'es').toLowerCase().indexOf('en') === 0 ? 'en' : 'es';
 
@@ -14,6 +14,18 @@
     '/traslados-turisticos-peru.html': 'traslados_turisticos',
     '/peru-private-transfers.html': 'traslados_turisticos',
     '/cusco-ollantaytambo-private-transfer.html': 'cusco_ollantaytambo'
+  };
+
+  window.marcalbusTrackLead = function (formName) {
+    var payload = {
+      event: 'generate_lead',
+      form_name: formName,
+      page_path: location.pathname,
+      page_language: LANG
+    };
+    if (SERVICES[location.pathname]) payload.service = SERVICES[location.pathname];
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(payload);
   };
 
   document.addEventListener('click', function (e) {

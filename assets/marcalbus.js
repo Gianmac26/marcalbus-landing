@@ -34,6 +34,7 @@
       }
 
       const quoteMessage = buildQuoteMessage({ nombre, empresa, email, servicio, mensaje });
+      if (window.marcalbusTrackLead) window.marcalbusTrackLead('contacto');
       openWhatsApp(quoteMessage);
     }
 

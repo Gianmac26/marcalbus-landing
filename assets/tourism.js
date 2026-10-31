@@ -74,6 +74,7 @@
           T.pax + ': ' + v('pax') + '\n' +
           T.unit + ': ' + unit + '\n' +
           T.details + ': ' + (v('details') || T.none);
+        if (window.marcalbusTrackLead) window.marcalbusTrackLead('traslado');
         openWhatsApp(msg);
       });
     }

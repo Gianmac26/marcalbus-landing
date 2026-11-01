@@ -3,6 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments)}
+gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
+try{if(localStorage.getItem('marcalbus_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'})}}catch(e){}
+</script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T93CCWPW');</script>
+  <!-- End Google Tag Manager -->
   <title>Seguridad en el transporte de personal: qué exigir a tu proveedor | MarcalBus</title>
   <meta name="description" content="Guía práctica para responsables de RR.HH. y Administración: protocolos de seguridad, documentación vehicular, GPS y criterios para elegir un proveedor de transporte de personal en Lima." />
   <meta name="robots" content="index, follow" />
@@ -50,12 +63,13 @@
   ]}
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2?v=20261031" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/assets/fonts.css?v=20261031">
   <link rel="stylesheet" href="/assets/marcalbus.css?v=20261028">
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T93CCWPW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <header class="nav">
     <div class="container nav-inner">
@@ -200,13 +214,13 @@
         <a href="/transporte-de-personal-lima.html">Transporte de personal</a>
         <a href="/#recursos">Recursos</a>
         <a href="/#contacto">Contacto</a>
-        <a href="#" id="footerWhatsAppLink">WhatsApp</a>
+        <a href="https://wa.me/51928672932?text=Hola%20MarcalBus%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20servicios.%20(web)" id="footerWhatsAppLink" target="_blank" rel="noopener">WhatsApp</a><a href="/politica-de-privacidad.html">Privacidad</a><a href="/politica-de-cookies.html">Cookies</a><a href="#cookie-settings" data-cookie-settings>Configuración de cookies</a>
       </div>
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="#" id="whatsappFloatBtn" aria-label="Contactar por WhatsApp">💬</a>
-  <script src="/assets/analytics.js?v=20261028" defer></script>
-  <script src="/assets/marcalbus.js?v=20261028" defer></script>
+  <a class="whatsapp-float" href="https://wa.me/51928672932?text=Hola%20MarcalBus%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20servicios.%20(web)" id="whatsappFloatBtn" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">💬</a>
+  <script src="/assets/consent.js?v=20261031" defer></script><script src="/assets/tracking.js?v=20261031" defer></script>
+  <script src="/assets/marcalbus.js?v=20261031" defer></script>
 </body>
 </html>

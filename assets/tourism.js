@@ -5,7 +5,6 @@
 
   var T = {
     en: {
-      hello: 'Hello MarcalBus, I would like a quote for a private transfer in Peru.',
       title: 'Hello MarcalBus, I would like a quote from your website:',
       name: 'Name', email: 'Email', route: 'Route', date: 'Travel date',
       pax: 'Passengers', unit: 'Vehicle', details: 'Details', none: 'Not specified',
@@ -14,7 +13,6 @@
       multi: 'Large group: we will combine vehicles for you.'
     },
     es: {
-      hello: 'Hola MarcalBus, quisiera cotizar un traslado privado en Perú.',
       title: 'Hola MarcalBus, quisiera una cotización desde su web:',
       name: 'Nombre', email: 'Correo', route: 'Ruta', date: 'Fecha de viaje',
       pax: 'Pasajeros', unit: 'Vehículo', details: 'Detalle', none: 'No indicado',
@@ -25,7 +23,8 @@
   }[LANG];
 
   function track(name, params) {
-    if (typeof gtag === 'function') gtag('event', name, params || {});
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: name }, params || {}));
   }
 
   function openWhatsApp(message) {
@@ -44,16 +43,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    ['waHero', 'waCta', 'waFloat', 'waFooter'].forEach(function (id) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      el.addEventListener('click', function (e) {
-        e.preventDefault();
-        track('click_whatsapp', { event_category: 'lead', event_label: id, language: LANG });
-        openWhatsApp(T.hello);
-      });
-    });
-
     document.querySelectorAll('[data-route]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var sel = document.getElementById('route');
@@ -85,7 +74,7 @@
           T.pax + ': ' + v('pax') + '\n' +
           T.unit + ': ' + unit + '\n' +
           T.details + ': ' + (v('details') || T.none);
-        track('generate_lead', { event_category: 'lead', route: v('route'), passengers: v('pax'), language: LANG });
+        if (window.marcalbusTrackLead) window.marcalbusTrackLead('traslado');
         openWhatsApp(msg);
       });
     }

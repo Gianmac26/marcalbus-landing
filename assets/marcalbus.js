@@ -1,17 +1,11 @@
   
     const MARCALBUS_CONFIG = {
-      whatsappNumber: '51928672932',
-      defaultMessage: 'Hola MarcalBus, necesito información sobre sus servicios.',
-      quoteMessage: 'Hola MarcalBus, quiero solicitar una cotización para mi empresa.'
+      whatsappNumber: '51928672932'
     };
 
     function openWhatsApp(message) {
       const encodedMessage = encodeURIComponent(message);
       const url = `https://wa.me/${MARCALBUS_CONFIG.whatsappNumber}?text=${encodedMessage}`;
-      if (typeof gtag === 'function') gtag('event', 'click_whatsapp', {
-          event_category: 'lead',
-          event_label: 'whatsapp_marcalbus'
-      });
       const newWindow = window.open(url, '_blank');
       if (newWindow) newWindow.opener = null;
     }
@@ -40,27 +34,13 @@
       }
 
       const quoteMessage = buildQuoteMessage({ nombre, empresa, email, servicio, mensaje });
+      if (window.marcalbusTrackLead) window.marcalbusTrackLead('contacto');
       openWhatsApp(quoteMessage);
-    }
-
-    function setupWhatsAppButton(id, message) {
-      const element = document.getElementById(id);
-      if (!element) return;
-
-      element.addEventListener('click', function (event) {
-        event.preventDefault();
-        openWhatsApp(message);
-      });
     }
 
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.getElementById('contactForm');
       if (form) form.addEventListener('submit', sendToWhatsApp);
-
-      setupWhatsAppButton('whatsappDirectBtn', MARCALBUS_CONFIG.quoteMessage);
-      setupWhatsAppButton('seoWhatsappHero', MARCALBUS_CONFIG.quoteMessage);
-      setupWhatsAppButton('whatsappFloatBtn', MARCALBUS_CONFIG.defaultMessage);
-      setupWhatsAppButton('footerWhatsAppLink', MARCALBUS_CONFIG.defaultMessage);
 
       console.assert(
         buildQuoteMessage({ nombre: 'Ana', empresa: 'ACME', email: 'ana@acme.com', servicio: 'Taxi ejecutivo', mensaje: '' }).includes('Detalle: No indicado'),

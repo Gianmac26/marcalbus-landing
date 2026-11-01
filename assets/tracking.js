@@ -16,6 +16,21 @@
     '/cusco-ollantaytambo-private-transfer.html': 'cusco_ollantaytambo'
   };
 
+  // contactForm: el servicio sale del select (solo el slug; nunca nombre, correo ni mensaje).
+  var SELECT_SERVICES = {
+    'transporte de personal': 'transporte_de_personal',
+    'minibus corporativo': 'minibus_corporativo',
+    'taxi ejecutivo': 'taxi_ejecutivo'
+  };
+
+  function serviceFromSelect() {
+    var sel = document.getElementById('servicio');
+    if (!sel) return '';
+    var key = String(sel.value || '').trim().toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return SELECT_SERVICES[key] || '';
+  }
+
   window.marcalbusTrackLead = function (formName) {
     var payload = {
       event: 'generate_lead',
@@ -23,7 +38,8 @@
       page_path: location.pathname,
       page_language: LANG
     };
-    if (SERVICES[location.pathname]) payload.service = SERVICES[location.pathname];
+    var service = formName === 'contacto' ? serviceFromSelect() : SERVICES[location.pathname];
+    if (service) payload.service = service;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(payload);
   };

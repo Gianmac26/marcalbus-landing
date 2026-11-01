@@ -1,7 +1,7 @@
 /* MarcalBus - eventos de conversion hacia dataLayer (GTM).
    Un unico listener delegado en captura. Sin datos personales.
-   generate_lead mide intencion de contacto (formulario validado, justo antes de abrir
-   WhatsApp), no un lead confirmado: window.marcalbusTrackLead(formName) lo emite. */
+   window.marcalbusSendForm envia el formulario a ventas@marcalbus.com por Web3Forms sin
+   bloquear WhatsApp; generate_lead se emite solo si Web3Forms responde OK (envio recibido). */
 (function () {
   var LANG = (document.documentElement.lang || 'es').toLowerCase().indexOf('en') === 0 ? 'en' : 'es';
 
@@ -33,7 +33,7 @@
     return SELECT_SERVICES[key] || '';
   }
 
-  window.marcalbusTrackLead = function (formName) {
+  function trackLead(formName) {
     var payload = {
       event: 'generate_lead',
       form_name: formName,
@@ -46,6 +46,33 @@
     if (service) payload.service = service;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(payload);
+  }
+
+  // Clave de acceso publica de Web3Forms (destino: ventas@marcalbus.com).
+  var W3F_URL = 'https://api.web3forms.com/submit';
+  var W3F_KEY = '67235d37-24c1-4b6c-a673-353670bfaf41';
+
+  // Fire-and-forget: nunca bloquea ni muestra errores; el que llama abre WhatsApp aparte.
+  window.marcalbusSendForm = function (formName, fields, detail) {
+    var honeypot = document.querySelector('input[name="botcheck"]');
+    if (honeypot && honeypot.checked) return;
+    var body = {};
+    for (var k in fields) body[k] = fields[k];
+    body.access_key = W3F_KEY;
+    body.subject = 'Nueva cotización web - ' + formName + ' - ' + (detail || 'sin detalle');
+    body.from_name = 'MarcalBus Web';
+    try {
+      fetch(W3F_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(body),
+        keepalive: true
+      }).then(function (res) {
+        return res.json().then(function (d) { return res.ok && d && d.success === true; }, function () { return false; });
+      }).then(function (ok) {
+        if (ok) trackLead(formName);
+      }).catch(function () {});
+    } catch (e) { /* sin red o fetch no disponible: WhatsApp ya se abrio */ }
   };
 
   document.addEventListener('click', function (e) {

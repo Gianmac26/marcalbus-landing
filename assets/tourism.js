@@ -74,7 +74,10 @@
           T.pax + ': ' + v('pax') + '\n' +
           T.unit + ': ' + unit + '\n' +
           T.details + ': ' + (v('details') || T.none);
-        if (window.marcalbusTrackLead) window.marcalbusTrackLead('traslado');
+        if (window.marcalbusSendForm) window.marcalbusSendForm('traslado', {
+          fullname: v('fullname'), email: v('email'), route: v('route'), tripdate: v('tripdate'),
+          pax: v('pax'), unit: unit, details: v('details'), pagina: location.pathname
+        }, v('route'));
         openWhatsApp(msg);
       });
     }

@@ -16,11 +16,13 @@
     '/cusco-ollantaytambo-private-transfer.html': 'cusco_ollantaytambo'
   };
 
-  // contactForm: el servicio sale del select (solo el slug; nunca nombre, correo ni mensaje).
+  // contactForm: la opcion del select manda si coincide; si no, el servicio de la pagina (SERVICES).
+  // Solo el slug; nunca nombre, correo ni mensaje.
   var SELECT_SERVICES = {
     'transporte de personal': 'transporte_de_personal',
     'minibus corporativo': 'minibus_corporativo',
-    'taxi ejecutivo': 'taxi_ejecutivo'
+    'taxi ejecutivo': 'taxi_ejecutivo',
+    'transporte turistico': 'turismo_empresarial'
   };
 
   function serviceFromSelect() {
@@ -38,7 +40,9 @@
       page_path: location.pathname,
       page_language: LANG
     };
-    var service = formName === 'contacto' ? serviceFromSelect() : SERVICES[location.pathname];
+    var service = formName === 'contacto'
+      ? (serviceFromSelect() || SERVICES[location.pathname])
+      : SERVICES[location.pathname];
     if (service) payload.service = service;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(payload);

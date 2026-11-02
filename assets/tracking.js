@@ -50,7 +50,7 @@
 
   // Clave de acceso publica de Web3Forms (destino: ventas@marcalbus.com).
   var W3F_URL = 'https://api.web3forms.com/submit';
-  var W3F_KEY = '4cb52824-1260-45de-9302-375eee6e34cb';
+  var W3F_KEY = '5bff58fc-e73c-44de-acc3-8fa9ec9af8cb';
 
   // Fire-and-forget: nunca bloquea ni muestra errores; el que llama abre WhatsApp aparte.
   window.marcalbusSendForm = function (formName, fields, detail) {

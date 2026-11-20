@@ -16,6 +16,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-T93CCWPW');</script>
   <!-- End Google Tag Manager -->
+  <!-- OpenAI Ads Pixel (el SDK solo se carga con consentimiento: ver assets/consent.js) -->
+  <script>
+  (function (w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function () { q.q.push(arguments); };
+    q.q = [];
+    w.oaiq = q;
+    var loaded = false;
+    w.marcalbusLoadOaiq = function () {
+      if (loaded) return;
+      loaded = true;
+      var js = d.createElement(s);
+      js.async = true;
+      js.src = u;
+      var f = d.getElementsByTagName(s)[0];
+      f.parentNode.insertBefore(js, f);
+    };
+    try { if (localStorage.getItem('marcalbus_consent') === 'granted') w.marcalbusLoadOaiq(); } catch (e) {}
+  })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+  oaiq("init", { pixelId: "PIXEL_ID" });
+  </script>
+  <!-- End OpenAI Ads Pixel -->
   <title>Precio del combustible y transporte empresarial | MarcalBus</title>
   <meta name="description" content="Cómo el precio del combustible afecta el costo del transporte corporativo en Perú, qué cláusulas revisar y cómo proteger el presupuesto de movilidad." />
   <meta name="robots" content="index, follow" />
@@ -228,7 +250,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </footer>
 
   <a class="whatsapp-float" href="https://wa.me/51928672932?text=Hola%2C%20vengo%20desde%20el%20blog%20de%20MarcalBus" id="whatsappFloatBtn" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">💬</a>
-  <script src="/assets/consent.js?v=20261031" defer></script><script src="/assets/tracking.js?v=20261103" defer></script>
+  <script src="/assets/consent.js?v=20261119" defer></script><script src="/assets/tracking.js?v=20261119" defer></script>
   <script src="/assets/marcalbus.js?v=20261101" defer></script>
 </body>
 </html>

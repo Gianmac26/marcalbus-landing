@@ -16,6 +16,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-T93CCWPW');</script>
   <!-- End Google Tag Manager -->
+  <!-- OpenAI Ads Pixel (el SDK solo se carga con consentimiento: ver assets/consent.js) -->
+  <script>
+  (function (w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function () { q.q.push(arguments); };
+    q.q = [];
+    w.oaiq = q;
+    var loaded = false;
+    w.marcalbusLoadOaiq = function () {
+      if (loaded) return;
+      loaded = true;
+      var js = d.createElement(s);
+      js.async = true;
+      js.src = u;
+      var f = d.getElementsByTagName(s)[0];
+      f.parentNode.insertBefore(js, f);
+    };
+    try { if (localStorage.getItem('marcalbus_consent') === 'granted') w.marcalbusLoadOaiq(); } catch (e) {}
+  })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+  oaiq("init", { pixelId: "PIXEL_ID" });
+  </script>
+  <!-- End OpenAI Ads Pixel -->
   <title>Política de privacidad | MarcalBus</title>
   <meta name="description" content="Cómo MarcalBus (AMG COMUNICA S.A.C.) trata tus datos personales: finalidades, base legal, terceros, conservación y cómo ejercer tus derechos." />
   <meta name="robots" content="index, follow" />
@@ -125,8 +147,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </footer>
 
-  <script src="/assets/consent.js?v=20261031" defer></script>
-  <script src="/assets/tracking.js?v=20261103" defer></script>
+  <script src="/assets/consent.js?v=20261119" defer></script>
+  <script src="/assets/tracking.js?v=20261119" defer></script>
 </body>
 </html>
 <!-- Revisar con asesor legal antes de producción -->

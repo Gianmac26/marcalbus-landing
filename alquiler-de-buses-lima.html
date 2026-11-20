@@ -15,6 +15,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-T93CCWPW');</script>
   <!-- End Google Tag Manager -->
+  <!-- OpenAI Ads Pixel (el SDK solo se carga con consentimiento: ver assets/consent.js) -->
+  <script>
+  (function (w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function () { q.q.push(arguments); };
+    q.q = [];
+    w.oaiq = q;
+    var loaded = false;
+    w.marcalbusLoadOaiq = function () {
+      if (loaded) return;
+      loaded = true;
+      var js = d.createElement(s);
+      js.async = true;
+      js.src = u;
+      var f = d.getElementsByTagName(s)[0];
+      f.parentNode.insertBefore(js, f);
+    };
+    try { if (localStorage.getItem('marcalbus_consent') === 'granted') w.marcalbusLoadOaiq(); } catch (e) {}
+  })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+  oaiq("init", { pixelId: "PIXEL_ID" });
+  </script>
+  <!-- End OpenAI Ads Pixel -->
   <title>Alquiler de buses para empresas en Lima | MarcalBus</title>
   <meta name="description" content="Alquiler de buses y minibuses de 19 a 45 pasajeros, full equipo y con conductor, para integraciones, eventos y viajes corporativos. Cotiza por WhatsApp.">
   <meta name="robots" content="index, follow"><link rel="canonical" href="https://marcalbus.com/alquiler-de-buses-lima.html">
@@ -405,6 +427,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }, true);
   })();
   </script>
-  <script src="/assets/consent.js?v=20261031" defer></script><script src="/assets/tracking.js?v=20261103" defer></script><script src="/assets/marcalbus.js?v=20261101" defer></script>
+  <script src="/assets/consent.js?v=20261119" defer></script><script src="/assets/tracking.js?v=20261119" defer></script><script src="/assets/marcalbus.js?v=20261101" defer></script>
 </body>
 </html>

@@ -16,6 +16,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-T93CCWPW');</script>
   <!-- End Google Tag Manager -->
+  <!-- OpenAI Ads Pixel (el SDK solo se carga con consentimiento: ver assets/consent.js) -->
+  <script>
+  (function (w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function () { q.q.push(arguments); };
+    q.q = [];
+    w.oaiq = q;
+    var loaded = false;
+    w.marcalbusLoadOaiq = function () {
+      if (loaded) return;
+      loaded = true;
+      var js = d.createElement(s);
+      js.async = true;
+      js.src = u;
+      var f = d.getElementsByTagName(s)[0];
+      f.parentNode.insertBefore(js, f);
+    };
+    try { if (localStorage.getItem('marcalbus_consent') === 'granted') w.marcalbusLoadOaiq(); } catch (e) {}
+  })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+  oaiq("init", { pixelId: "PIXEL_ID" });
+  </script>
+  <!-- End OpenAI Ads Pixel -->
   <title>Private transfers across Peru for groups | MarcalBus</title>
   <meta name="description" content="Private transfers in Peru for groups: Paracas, Ica, Nazca, Arequipa, Cusco, Puno and Huaraz. Vans to 45-seat buses with A/C. No shared tours.">
   <meta name="robots" content="index, follow">
@@ -136,7 +158,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer-routes"><strong>Popular routes</strong><a href="/cusco-ollantaytambo-private-transfer.html">Cusco to Ollantaytambo transfer</a></div>
   </div></footer>
   <a class="whatsapp-float" href="https://wa.me/51928672932?text=Hola%2C%20vengo%20desde%20la%20p%C3%A1gina%20de%20traslados%20tur%C3%ADsticos" id="waFloat" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener">💬</a>
-  <script src="/assets/consent.js?v=20261031" defer></script><script src="/assets/tracking.js?v=20261103" defer></script>
+  <script src="/assets/consent.js?v=20261119" defer></script><script src="/assets/tracking.js?v=20261119" defer></script>
   <script src="/assets/marcalbus.js?v=20261101" defer></script>
   <script src="/assets/tourism.js?v=20261101" defer></script>
 </body>

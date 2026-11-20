@@ -16,6 +16,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-T93CCWPW');</script>
   <!-- End Google Tag Manager -->
+  <!-- OpenAI Ads Pixel (el SDK solo se carga con consentimiento: ver assets/consent.js) -->
+  <script>
+  (function (w, d, s, u) {
+    if (w.oaiq) return;
+    var q = function () { q.q.push(arguments); };
+    q.q = [];
+    w.oaiq = q;
+    var loaded = false;
+    w.marcalbusLoadOaiq = function () {
+      if (loaded) return;
+      loaded = true;
+      var js = d.createElement(s);
+      js.async = true;
+      js.src = u;
+      var f = d.getElementsByTagName(s)[0];
+      f.parentNode.insertBefore(js, f);
+    };
+    try { if (localStorage.getItem('marcalbus_consent') === 'granted') w.marcalbusLoadOaiq(); } catch (e) {}
+  })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+  oaiq("init", { pixelId: "PIXEL_ID" });
+  </script>
+  <!-- End OpenAI Ads Pixel -->
   <title>Cusco to Ollantaytambo private transfer | MarcalBus</title>
   <meta name="description" content="Private Cusco to Ollantaytambo transfer for your train to Machu Picchu. Your own vehicle with A/C, from a van to a 45-seat bus. Quote on WhatsApp.">
   <meta name="robots" content="index, follow">
@@ -128,7 +150,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer-links"><a href="/transporte-de-personal-lima.html">Corporate transport</a><a href="/taxi-ejecutivo-lima.html">Executive taxi</a><a href="/minibus-corporativo-lima.html">Minibuses</a><a href="https://wa.me/51928672932?text=Hola%2C%20vengo%20desde%20la%20p%C3%A1gina%20de%20Cusco%20-%20Ollantaytambo" id="waFooter" target="_blank" rel="noopener">WhatsApp</a><a href="/privacy-policy.html">Privacy</a><a href="/cookie-policy.html">Cookies</a><a href="#cookie-settings" data-cookie-settings>Cookie settings</a></div>
   </div></footer>
   <a class="whatsapp-float" href="https://wa.me/51928672932?text=Hola%2C%20vengo%20desde%20la%20p%C3%A1gina%20de%20Cusco%20-%20Ollantaytambo" id="waFloat" aria-label="Contact us on WhatsApp" target="_blank" rel="noopener">💬</a>
-  <script src="/assets/consent.js?v=20261031" defer></script><script src="/assets/tracking.js?v=20261103" defer></script>
+  <script src="/assets/consent.js?v=20261119" defer></script><script src="/assets/tracking.js?v=20261119" defer></script>
   <script src="/assets/marcalbus.js?v=20261101" defer></script>
   <script src="/assets/tourism.js?v=20261101" defer></script>
 </body>

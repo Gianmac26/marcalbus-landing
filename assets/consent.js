@@ -2,7 +2,7 @@
    El consent 'default' (denied) y la restauracion de una eleccion previa se hacen
    inline en el <head>, antes de GTM. Este archivo solo muestra el aviso, guarda la
    eleccion (localStorage 'marcalbus_consent') y envia el consent update.
-   Microsoft Clarity solo se carga con consentimiento concedido. */
+   Microsoft Clarity y el SDK del Pixel de OpenAI Ads solo se cargan con consentimiento concedido. */
 (function () {
   var KEY = 'marcalbus_consent';
   var CLARITY_ID = 'x1vih506vp';
@@ -55,6 +55,11 @@
       t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
       y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
     })(window, document, 'clarity', 'script', CLARITY_ID);
+  }
+
+  // OpenAI Ads Pixel: el stub y el loader se definen inline en el <head>.
+  function loadOaiq() {
+    if (typeof window.marcalbusLoadOaiq === 'function') window.marcalbusLoadOaiq();
   }
 
   function injectStyles() {
@@ -136,6 +141,7 @@
     if (value === 'granted') {
       setSignals('granted');
       loadClarity();
+      loadOaiq();
     } else if (previous === 'granted') {
       // Retirada del consentimiento: se revocan las senales ya concedidas.
       setSignals('denied');
@@ -147,7 +153,7 @@
   function init() {
     injectStyles();
     var saved = read();
-    if (saved === 'granted') loadClarity();
+    if (saved === 'granted') { loadClarity(); loadOaiq(); }
     if (!saved) open();
 
     document.addEventListener('click', function (e) {

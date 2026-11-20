@@ -33,6 +33,15 @@
     return SELECT_SERVICES[key] || '';
   }
 
+  // OpenAI Ads Pixel: conversion lead_created, solo con consentimiento concedido.
+  function oaiqLead() {
+    try {
+      if (localStorage.getItem('marcalbus_consent') !== 'granted') return;
+      if (typeof window.oaiq !== 'function') return;
+      window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { event_id: 'lead-' + Date.now() });
+    } catch (e) { /* nunca bloquea la navegacion */ }
+  }
+
   function trackLead(formName) {
     var payload = {
       event: 'generate_lead',
@@ -46,6 +55,7 @@
     if (service) payload.service = service;
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(payload);
+    oaiqLead();
   }
 
   // Clave de acceso publica de Web3Forms (destino: ventas@marcalbus.com).
@@ -98,5 +108,6 @@
     }
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(payload);
+    if (payload.event === 'whatsapp_click') oaiqLead();
   }, true);
 })();

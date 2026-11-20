@@ -4,3 +4,5 @@ img/destinos/originals/
 # Artefactos de herramientas de navegador
 .playwright-mcp/
 .DS_Store
+.vercel
+.env*

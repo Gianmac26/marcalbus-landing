@@ -58,6 +58,38 @@
     oaiqLead();
   }
 
+  // UTM de la visita: se guardan en sessionStorage al entrar con utm_* en la URL para que
+  // sigan disponibles si el usuario navega a otra pagina antes de enviar el formulario.
+  // Solo se envian con el formulario (Web3Forms); nunca se mandan a otro lado.
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  var UTM_STORE = 'marcalbus_utm';
+
+  function readUtm() {
+    var fromUrl = {};
+    var found = false;
+    try {
+      var params = new URLSearchParams(location.search);
+      UTM_KEYS.forEach(function (key) {
+        var v = params.get(key);
+        if (v) { fromUrl[key] = v.slice(0, 200); found = true; }
+      });
+    } catch (e) { /* URLSearchParams no disponible */ }
+    try {
+      if (found) { sessionStorage.setItem(UTM_STORE, JSON.stringify(fromUrl)); return fromUrl; }
+      var saved = sessionStorage.getItem(UTM_STORE);
+      return saved ? JSON.parse(saved) : {};
+    } catch (e) { return fromUrl; }
+  }
+
+  var UTM = readUtm();
+
+  // Origen legible para el correo de ventas.
+  function campaignOrigin() {
+    var src = String(UTM.utm_source || '').toLowerCase();
+    if (src === 'chatgpt' || src === 'openai' || src === 'chatgpt.com') return 'ChatGPT Ads';
+    return UTM.utm_source ? String(UTM.utm_source) : '';
+  }
+
   // Clave de acceso publica de Web3Forms (destino: ventas@marcalbus.com).
   var W3F_URL = 'https://api.web3forms.com/submit';
   var W3F_KEY = '5bff58fc-e73c-44de-acc3-8fa9ec9af8cb';
@@ -69,7 +101,11 @@
     var body = {};
     for (var k in fields) body[k] = fields[k];
     body.access_key = W3F_KEY;
-    body.subject = 'Nueva cotización web - ' + formName + ' - ' + (detail || 'sin detalle');
+    var origin = campaignOrigin();
+    UTM_KEYS.forEach(function (key) { if (UTM[key]) body[key] = UTM[key]; });
+    if (origin) body.origen_campana = origin;
+    body.subject = 'Nueva cotización web - ' + formName + ' - ' + (detail || 'sin detalle') +
+      (origin ? ' - ' + origin : '');
     body.from_name = 'MarcalBus Web';
     try {
       fetch(W3F_URL, {
